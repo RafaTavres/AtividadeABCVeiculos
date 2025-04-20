@@ -12,17 +12,15 @@ public class Automovel : DePassageiros
 
     public override string TipoVeiculo => "Automóvel";
 
-    public Automovel (int id, string marca, string modelo, int ano, decimal preco, string cor, /*...herança DePassageiros...,*/ string tipoCarroceria,
-    string qtdPortas, bool eletrico, int capacidadePortaMalas, int cavalos) 
-    : base(id, marca, modelo, ano, preco, cor, /*...herança DePassageiros...,*/)
-    
+    public Automovel (int id, string marca, string modelo, int ano, decimal preco, string cor, string tipoCarroceria,
+    string qtdPortas, bool eletrico, int capacidadePortaMalas, int cavalos, int capacidadePassageiros) 
+    : base(id, marca, modelo, ano, preco, cor, capacidadePassageiros)
     {
         TipoCarroceria = tipoCarroceria;
         QtdPortas = qtdPortas;
         Eletrico = eletrico;
         CapacidadePortaMalas = capacidadePortaMalas;
         Cavalos = cavalos;
-        /*...herança DePassageiros...,*/
         Id = id;
         Marca = marca;
         Modelo = modelo;

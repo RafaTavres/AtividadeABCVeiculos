@@ -1,3 +1,4 @@
+namespace ABCVeiculosLib;
 public abstract class Veiculo
 {
     public int Id { get; set; }
@@ -11,7 +12,7 @@ public abstract class Veiculo
     public abstract string TipoVeiculo { get; }
     public override string ToString()
     {
-        return $"{Marca}, {Modelo}, {TipoVeiculo}";
+        return $"Marca: {Marca},Modelo: {Modelo},Tipo: {this.GetType().Name}";
     }
 
     public Veiculo(int id, string marca, string modelo, int ano, decimal preco, string cor)

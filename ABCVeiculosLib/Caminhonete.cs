@@ -9,8 +9,7 @@ public class Caminhonete : DeCarga
     public override string TipoVeiculo => "Caminhonete";
 
     public Caminhonete(int id, string marca, string modelo, int ano, decimal preco, string cor, decimal pesoCarga, string tipoCarga,
-    bool cabineDupla, bool tracao4x4, string tipoSuspensao) :
-    base(id, marca, modelo,ano, preco, cor, pesoCarga, tipoCarga)
+    bool cabineDupla, bool tracao4x4, string tipoSuspensao) : base(id, marca, modelo,ano, preco, cor, pesoCarga, tipoCarga)
     {
         CabineDupla = cabineDupla;
         Tracao4x4 = tracao4x4;
