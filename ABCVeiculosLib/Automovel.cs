@@ -14,7 +14,7 @@ public class Automovel : DePassageiros
 
     public Automovel (int id, string marca, string modelo, int ano, decimal preco, string cor, string tipoCarroceria,
     string qtdPortas, bool eletrico, int capacidadePortaMalas, int cavalos, int capacidadePassageiros) 
-    : base(id, marca, modelo, ano, preco, cor, capacidadePassageiros)
+    : base(id, marca, modelo, ano, preco, cor, capacidadePassageiros) 
     {
         TipoCarroceria = tipoCarroceria;
         QtdPortas = qtdPortas;
@@ -29,8 +29,8 @@ public class Automovel : DePassageiros
         Cor = cor;
         Vendido = false; 
     }
-    public override string ToString(string TipoCarroceria, int QtdPortas, bool Eletrico, int CapacidadePortaMalas,)
+    public override string ToString() 
     {
-        return $"{Marca}, {Modelo}, {TipoVeiculo}";    
+        return $"{Marca}, {Modelo}, {TipoVeiculo}";
     }
 }
