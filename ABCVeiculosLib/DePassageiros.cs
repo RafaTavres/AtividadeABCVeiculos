@@ -4,10 +4,9 @@ public abstract class DePassageiros : Veiculo
 {
     public int CapacidadePassageiros {get; set;}
     public int QuantidadeRodas {get; set;}
-    public DePassageiros(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros, int quantidadeRodas) :
+    public DePassageiros(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros) :
     base(id, marca, modelo,ano, preco, cor)
     {
-        QuantidadeRodas = quantidadeRodas;
         CapacidadePassageiros = capacidadePassageiros;
         Id = id;
         Marca = marca;
@@ -19,6 +18,6 @@ public abstract class DePassageiros : Veiculo
     }
     public override string ToString()
     {
-        return $"{Marca}, {Modelo} {TipoVeiculo}";
+        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, ";
     }
 }
