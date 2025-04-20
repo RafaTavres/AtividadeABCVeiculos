@@ -31,7 +31,7 @@ public class Automovel : DePassageiros
         Cor = cor;
         Vendido = false; 
     }
-    public override string ToString()
+    public override string ToString(string TipoCarroceria, int QtdPortas, bool Eletrico, int CapacidadePortaMalas,)
     {
         return $"{Marca}, {Modelo}, {TipoVeiculo}";    
     }
