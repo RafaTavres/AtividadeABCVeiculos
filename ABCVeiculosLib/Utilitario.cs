@@ -1,11 +1,11 @@
 namespace ABCVeiculosLib;
 
-public abstract class Utilitario : DeMisto
+public class Utilitario : DeMisto
 {
-    public int TipoUso {get; set;}
+    public string TipoUso {get; set;}
     public bool AdaptadoParaPCD {get; set;}
     public override string TipoVeiculo => "Utilitario";
-    public Utilitario(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros, int tipoUso, bool adptadoParaPCD) :
+    public Utilitario(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros, string tipoUso, bool adptadoParaPCD) :
     base(id, marca, modelo,ano, preco, cor, capacidadePassageiros)
     {
         TipoUso = tipoUso;
