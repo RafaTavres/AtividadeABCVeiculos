@@ -435,6 +435,7 @@ internal class Program
         Console.WriteLine("2 - Utilitário");
         Console.WriteLine("3 - Caminhonete");
         Console.WriteLine("4 - Caminhão");
+        Console.WriteLine("6 - Motocicleta");
         string tipoVeiculo = Console.ReadLine();
         if(!VerificarTipoCarroValido(tipoVeiculo))
         {
@@ -457,6 +458,9 @@ internal class Program
                     break;
                 case "4":
                     opcaoSelecionada = "Caminhão";
+                    break;
+                case "6":
+                    opcaoSelecionada = "Motocicleta";
                     break;
                 default:
                     opcaoSelecionada = "";
@@ -491,6 +495,7 @@ internal class Program
         || opcao.Equals("2", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("S", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
@@ -524,7 +529,8 @@ internal class Program
         if(opcao.Equals("1", StringComparison.CurrentCultureIgnoreCase) 
         || opcao.Equals("2", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
-        || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase))
+        || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
         }

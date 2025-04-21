@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace ABCVeiculosLib;
 
 public class Automovel : DePassageiros
@@ -10,7 +8,7 @@ public class Automovel : DePassageiros
     public int CapacidadePortaMalas {get; set;}
     public int Cavalos {get; set;}
 
-    public override string TipoVeiculo => "Automóvel";
+    public override string TipoVeiculo => "Automovel";
 
     public Automovel (int id, string marca, string modelo, int ano, decimal preco, string cor, string tipoCarroceria,
     string qtdPortas, bool eletrico, int capacidadePortaMalas, int cavalos, int capacidadePassageiros) 
@@ -31,6 +29,8 @@ public class Automovel : DePassageiros
     }
     public override string ToString() 
     {
-        return $"{Marca}, {Modelo}, {TipoVeiculo}";
+        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
+        $"Carroceria: {TipoCarroceria}, Portas: {QtdPortas}, Eletrico: {Eletrico}, Porta-Malas: {CapacidadePortaMalas}L, " +
+        $"Potência: {Cavalos}CV, Passageiros: {CapacidadePassageiros}";
     }
 }
