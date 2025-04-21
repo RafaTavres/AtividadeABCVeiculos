@@ -5,6 +5,7 @@ namespace ABCVeiculosLib;
 //Osmar
 //Rafael
 
+// Herança: Motocicleta herda de DePassageiros, o que permite reutilizar propriedades e comportamentos comuns a veículos de passageiros.
 public class Motocicleta : DePassageiros
 {
     private string cortaVento;

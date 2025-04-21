@@ -7,6 +7,7 @@ namespace ABCVeiculosLib;
 
 public class Automovel : DePassageiros
 {
+    // Encapsulamento: Propriedades públicas com get/set permitem controle sobre leitura e escrita.
     public string TipoCarroceria {get; set;}
     public int QtdPortas {get; set;}
     public bool Eletrico {get; set;}

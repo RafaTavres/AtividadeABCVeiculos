@@ -15,7 +15,9 @@ public abstract class Veiculo
     public string Cor { get; set; }
     public bool Vendido { get; protected set; }
     public int IdadeVeiculo => DateTime.Now.Year - Ano;
-    public abstract string TipoVeiculo { get; }
+
+    // Abstração: Esta propriedade obriga as classes filhas a especificarem o tipo do veículo (ex: "Bicicleta", "Automóvel").
+    public abstract string TipoVeiculo { get; } 
     public override string ToString()
     {
         return $"Marca: {Marca},Modelo: {Modelo},Tipo: {this.GetType().Name}";
