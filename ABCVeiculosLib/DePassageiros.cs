@@ -17,6 +17,6 @@ public abstract class DePassageiros : Veiculo
     }
     public override string ToString()
     {
-        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, ";
+        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Cor{Cor}, Capacidade de Passageiros: {CapacidadePassageiros} Preço: {Preco}";
     }
 }
