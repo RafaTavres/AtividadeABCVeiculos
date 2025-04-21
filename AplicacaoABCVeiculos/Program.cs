@@ -170,7 +170,7 @@ internal class Program
                     case "Caminhonete":
                         opcaoSelecionada = "3";
                         break;
-                    case "Caminhão":
+                    case "Caminhao":
                         opcaoSelecionada = "4";
                         break;
                     case "Bicicleta":
@@ -325,7 +325,7 @@ internal class Program
         
         Veiculo veiculo = null;
         int id = RevendaAtual.VeiculosDaRevenda.Count + 1;
-        Console.WriteLine("=== CADASTRO DE VEÍCULO ===");
+        Console.WriteLine("=== DADOS DO VEÍCULO ===");
         Console.WriteLine(tipoVeiculo);
         Console.Write("Marca: ");
         string marca = Console.ReadLine();
