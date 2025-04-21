@@ -1,5 +1,10 @@
 namespace ABCVeiculosLib;
 
+//Alan
+//Alisson
+//Osmar
+//Rafael
+
 public class Caminhonete : DeCarga
 {
     public bool CabineDupla {get; set;}

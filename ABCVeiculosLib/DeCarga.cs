@@ -1,5 +1,10 @@
 namespace ABCVeiculosLib;
 
+//Alan
+//Alisson
+//Osmar
+//Rafael
+
 public abstract class DeCarga : Veiculo
 {
     public decimal PesoCarga { get; set;}

@@ -1,5 +1,11 @@
 ﻿using ABCVeiculosLib;
 using System.Linq;
+
+//Alan
+//Alisson
+//Osmar
+//Rafael
+
 internal class Program
 {
     public static Revenda RevendaAtual;
