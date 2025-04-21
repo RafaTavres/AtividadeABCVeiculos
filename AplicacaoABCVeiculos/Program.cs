@@ -314,6 +314,7 @@ internal class Program
             Console.WriteLine("3 - Caminhonete");
             Console.WriteLine("4 - Caminhão");
             Console.WriteLine("5 - Bicicleta");
+            Console.WriteLine("6 - Motocicleta");
             string tipoVeiculo = Console.ReadLine();
             if(!VerificarTipoCarroValido(tipoVeiculo))
             {
