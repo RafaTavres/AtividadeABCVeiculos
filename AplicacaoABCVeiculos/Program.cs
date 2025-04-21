@@ -308,8 +308,8 @@ internal class Program
 
             Veiculo novoVeiculo;
             Console.WriteLine("=== CADASTRO DE VEÍCULO ===");
-            Console.Write("Tipo do veículo: ");
-            Console.WriteLine("1 - Carro");
+            Console.WriteLine("Tipo do veículo: ");
+            Console.WriteLine("1 - Automóvel");
             Console.WriteLine("2 - Utilitário");
             Console.WriteLine("3 - Caminhonete");
             Console.WriteLine("4 - Caminhão");
@@ -362,7 +362,7 @@ internal class Program
                 string eletrico;
                 bool ehEletrico = false;
                 do{
-                    Console.Write("Cabine dupla? S/N: ");
+                    Console.Write("É elétrico? S/N: ");
                     eletrico = Console.ReadLine();
                     if(eletrico.ToUpper() != "S" && eletrico.ToUpper() != "N")
                     {
@@ -399,7 +399,6 @@ internal class Program
                 qtdPortas, ehEletrico, capacidadePortaMalas, cavalos, capacidadePassageiros);
                 break;
                 break;
-
             case "2":
                 Console.Write("Capacidade de passageiros: ");
                 capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
@@ -426,7 +425,6 @@ internal class Program
                 string tipoUso = Console.ReadLine();
                 veiculo = new Utilitario(id,marca,modelo,ano,preco,cor,capacidadePassageiros,tipoUso,ehAdaptadoParaPCD);
                 break;
-
             case "3":
                 Console.Write("Peso de carga: ");
                 decimal pesoCarga = Convert.ToDecimal(Console.ReadLine());
@@ -527,7 +525,6 @@ internal class Program
                 numeroEixos, capacidadeCombustivel, tipoCarroceria, potenciaMotor,  
                 temDormitorio, quantidadeEixos);
                 break;
-
             case "5":
                 Console.Write("Tipo de Material: ");
                 string tipoMaterial = Console.ReadLine();
@@ -556,7 +553,7 @@ internal class Program
         Console.Clear();
         Console.WriteLine("======================");
         Console.WriteLine("Escolha o tipo de veículo que deseja listar:");
-        Console.WriteLine("1 - Automovel");
+        Console.WriteLine("1 - Automóvel");
         Console.WriteLine("2 - Utilitário");
         Console.WriteLine("3 - Caminhonete");
         Console.WriteLine("4 - Caminhão");
