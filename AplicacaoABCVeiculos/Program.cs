@@ -151,27 +151,13 @@ internal class Program
             Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
             try
             {
-                Console.WriteLine("=== EDIÇÃO DE VEÍCULO ===");
-                Console.WriteLine("Novo tipo do veículo: ");
-                Console.WriteLine("1 - Automóvel");
-                Console.WriteLine("2 - Utilitário");
-                Console.WriteLine("3 - Caminhonete");
-                Console.WriteLine("4 - Caminhão");
-                Console.WriteLine("5 - Bicicleta");
-                Console.WriteLine("6 - Motocicleta");
-                string tipoVeiculo = Console.ReadLine();
-                if(!VerificarTipoCarroValido(tipoVeiculo))
+                Veiculo veiculo = CriarVeiculo(veiculoSelecionado.TipoVeiculo);
+                var veiculoExistente = RevendaAtual.VeiculosDaRevenda.Find(x => x.Id == veiculoSelecionado.Id);
+                if (veiculoExistente != null)
                 {
-                    Console.WriteLine("Tipo de veículo inválido. Tente novamente.");
-                    return;
-                }else
-                {   Veiculo veiculo = CriarVeiculo(tipoVeiculo);
-                    var veiculoExistente = RevendaAtual.VeiculosDaRevenda.Find(x => x.Id == veiculoSelecionado.Id);
-                    if (veiculoExistente != null)
-                    {
-                        CopiarPropriedades(veiculo, veiculoExistente);
-                    }
+                    CopiarPropriedades(veiculo, veiculoExistente);
                 }
+                
             }catch(Exception ex)
             {
                 Console.WriteLine($"Erro: {ex.Message}");
