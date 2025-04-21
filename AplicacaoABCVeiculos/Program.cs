@@ -11,7 +11,6 @@ internal class Program
     public static Revenda RevendaAtual;
     Program()
     {
-        RevendaAtual = new Revenda("S", "123123", new Endereco(), "12312323");
         string? opcao = null;
         do{
             opcao = MenuInicial(opcao);
