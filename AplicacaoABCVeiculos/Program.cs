@@ -63,7 +63,7 @@ internal class Program
 
     public void ExcluirVeiculo()
     {
-         try
+        try
         {
             if(RevendaAtual == null)
             {
