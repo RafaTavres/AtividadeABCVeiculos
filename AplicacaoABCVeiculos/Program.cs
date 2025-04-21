@@ -402,7 +402,7 @@ internal class Program
 
             case "2":
                 Console.Write("Capacidade de passageiros: ");
-                int capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
                 while(!VerificarSerRespostaEhNumero(capacidadePassageiros))
                 {
                     Console.Write("Digite um número válido");
@@ -494,7 +494,7 @@ internal class Program
                     capacidadeCombustivel = Convert.ToDecimal(Console.ReadLine());
                 }
                 Console.Write("Tipo de carroceria: ");
-                string tipoCarroceria = Console.ReadLine();
+                tipoCarroceria = Console.ReadLine();
                 Console.Write("Potência do motor: ");
                 int potenciaMotor = Convert.ToInt32(Console.ReadLine());
                 while(!VerificarSerRespostaEhNumero(potenciaMotor))
@@ -561,6 +561,7 @@ internal class Program
         Console.WriteLine("3 - Caminhonete");
         Console.WriteLine("4 - Caminhão");
         Console.WriteLine("5 - Bicicleta");
+        Console.WriteLine("6 - Motocicleta");
         string tipoVeiculo = Console.ReadLine();
         if(!VerificarTipoCarroValido(tipoVeiculo))
         {
@@ -586,6 +587,9 @@ internal class Program
                     break;
                 case "5":
                     opcaoSelecionada = "Bicicleta";
+                    break;
+                case "6":
+                    opcaoSelecionada = "Motocicleta";
                     break;
                 default:
                     opcaoSelecionada = "";
@@ -621,6 +625,7 @@ internal class Program
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("S", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
@@ -655,7 +660,8 @@ internal class Program
         || opcao.Equals("2", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
-        || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase))
+        || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
         }
