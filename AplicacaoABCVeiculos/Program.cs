@@ -184,6 +184,7 @@ internal class Program
         Console.WriteLine("2 - Adicionar veículo");
         Console.WriteLine("3 - Listar todos os dados da revenda e de seus veículos");
         Console.WriteLine("4 - Listar veiculos por tipo");
+        Console.WriteLine("5 - Editar dados de um veículo");
         Console.WriteLine("S - Sair");
         opcao = Console.ReadLine();
         if(VerificarOpcaoValida(opcao))
@@ -202,6 +203,9 @@ internal class Program
                 case "4":
                     ListarVeiculosPorTipo();
                     break;
+                case "5":
+                    EditarVeiculo();
+                    break;
                 case "S":
                     return opcao = "S";
                     break;
@@ -215,6 +219,75 @@ internal class Program
         return opcao = "N";
     }
 
+    public void EditarVeiculo()
+    {
+        try
+        {
+            if(RevendaAtual == null)
+            {
+                Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+                return;
+            }
+            Console.Clear();
+            Console.WriteLine("======================");
+            for(int i = 0; i < RevendaAtual.VeiculosDaRevenda.Count; i++)
+            {
+                Console.WriteLine("----------------------");
+                Console.WriteLine($"ID: [{i + 1}] - {RevendaAtual.VeiculosDaRevenda[i].ToString()}");
+                Console.WriteLine("----------------------");
+            }
+            Console.WriteLine("Escolha o ID do veículo que deseja editar:");
+            int opcao = Convert.ToInt32(Console.ReadLine()) - 1;
+            if(opcao < 0 || opcao >= RevendaAtual.VeiculosDaRevenda.Count)
+            {
+                Console.WriteLine("Opção inválida. Tente novamente.");
+                return;
+            }
+            Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
+            try
+            {
+                if(RevendaAtual == null)
+                {
+                    Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                    return;
+                }
+
+                Veiculo novoVeiculo;
+                Console.WriteLine("=== EDIÇÃO DE VEÍCULO ===");
+                Console.WriteLine("Tipo do veículo: ");
+                Console.WriteLine("1 - Automóvel");
+                Console.WriteLine("2 - Utilitário");
+                Console.WriteLine("3 - Caminhonete");
+                Console.WriteLine("4 - Caminhão");
+                Console.WriteLine("5 - Bicicleta");
+                Console.WriteLine("6 - Motocicleta");
+                string tipoVeiculo = Console.ReadLine();
+                if(!VerificarTipoCarroValido(tipoVeiculo))
+                {
+                    Console.WriteLine("Tipo de veículo inválido. Tente novamente.");
+                    return;
+                }else
+                {
+                    Veiculo veiculo = CriarVeiculo(tipoVeiculo);
+                    veiculoSelecionado = veiculo;
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+            }
+        }catch(Exception ex)
+        {
+            Console.WriteLine($"Erro: {ex.Message}");
+            Console.WriteLine("Clique qualquer tecla para continuar");
+            Console.ReadKey();
+        }
+    }
     public void CadastrarRevenda()
     {
         try
