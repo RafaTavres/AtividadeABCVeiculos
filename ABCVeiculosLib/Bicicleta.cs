@@ -5,11 +5,12 @@ namespace ABCVeiculosLib;
 //Osmar
 //Rafael
 
-public class Bicicleta : DePassageiros
+public class Bicicleta : DePassageiros 
 {
     public string TipoMaterial {get; set;}
     public string TipoFreio {get; set;}
 
+    // Polimorfismo: sobrescreve a propriedade abstrata ou virtual da classe base para retornar o tipo específico do veículo.
     public override string TipoVeiculo => "Bicicleta";
 
     public Bicicleta(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros, string tipoMaterial, string tipoFreio) :
