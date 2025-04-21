@@ -1,5 +1,10 @@
 namespace ABCVeiculosLib;
 
+//Alan
+//Alisson
+//Osmar
+//Rafael
+
 public abstract class DePassageiros : Veiculo
 {
     public int CapacidadePassageiros {get; set;}

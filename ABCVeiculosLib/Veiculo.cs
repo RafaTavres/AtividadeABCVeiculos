@@ -1,4 +1,10 @@
 namespace ABCVeiculosLib;
+
+//Alan
+//Alisson
+//Osmar
+//Rafael
+
 public abstract class Veiculo
 {
     public int Id { get; set; }
