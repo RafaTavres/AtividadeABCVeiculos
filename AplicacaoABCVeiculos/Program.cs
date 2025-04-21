@@ -151,7 +151,33 @@ internal class Program
             Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
             try
             {
-                Veiculo veiculo = CriarVeiculo(veiculoSelecionado.TipoVeiculo);
+                string opcaoSelecionada = "";
+                Console.WriteLine(veiculoSelecionado.TipoVeiculo);
+                switch (veiculoSelecionado.TipoVeiculo)
+                {
+                    case "Automovel":
+                        opcaoSelecionada = "1";
+                        break;
+                    case "Utilitario":
+                        opcaoSelecionada = "2";
+                        break;
+                    case "Caminhonete":
+                        opcaoSelecionada = "3";
+                        break;
+                    case "Caminhão":
+                        opcaoSelecionada = "4";
+                        break;
+                    case "Bicicleta":
+                        opcaoSelecionada = "5";
+                        break;
+                    case "Motocicleta":
+                        opcaoSelecionada = "6";
+                        break;
+                    default:
+                        opcaoSelecionada = "";
+                        break;
+                }
+                Veiculo veiculo = CriarVeiculo(opcaoSelecionada);
                 var veiculoExistente = RevendaAtual.VeiculosDaRevenda.Find(x => x.Id == veiculoSelecionado.Id);
                 if (veiculoExistente != null)
                 {
@@ -290,9 +316,11 @@ internal class Program
     }
     public Veiculo CriarVeiculo(string tipoVeiculo)
     {
+        
         Veiculo veiculo = null;
         int id = RevendaAtual.VeiculosDaRevenda.Count + 1;
         Console.WriteLine("=== CADASTRO DE VEÍCULO ===");
+        Console.WriteLine(tipoVeiculo);
         Console.Write("Marca: ");
         string marca = Console.ReadLine();
         Console.Write("Modelo: ");
