@@ -610,6 +610,43 @@ internal class Program
 
                 veiculo = new Bicicleta(id, marca, modelo, ano, preco, cor, capacidadePassageiros, tipoMaterial, tipoFreio);
                 break;
+            case "6":
+                Console.Write("Tipo Moto: ");
+                string tipoMoto = Console.ReadLine();
+
+                Console.Write("Potência CC: ");
+                int cilindradas = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(cilindradas))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Potência CC: ");
+                    cilindradas = Convert.ToInt32(Console.ReadLine());
+                }
+
+                string cortaVento;
+                bool TemCortaVento = false;
+                do{
+                    Console.Write("Possui Corta-Vento? S/N: ");
+                    cortaVento = Console.ReadLine();
+                    if(cortaVento.ToUpper() != "S" && cortaVento.ToUpper() != "N")
+                    {
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                    }else{
+                        TemCortaVento = cortaVento.ToUpper() == "S" ? true : false;
+                    }
+                }while(cortaVento.ToUpper() != "S" && cortaVento.ToUpper() != "N");
+
+                Console.Write("Capacidade de passageiros: ");
+                capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(capacidadePassageiros))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Capacidade de passageiros: ");
+                    capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                }
+                veiculo = new Motocicleta(id, marca, modelo, ano, preco, cor, capacidadePassageiros, tipoMoto, cilindradas, cortaVento);
+                break;
+
         }
 
         return veiculo;

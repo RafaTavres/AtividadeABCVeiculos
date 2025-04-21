@@ -2,6 +2,8 @@ namespace ABCVeiculosLib;
 
 public class Motocicleta : DePassageiros
 {
+    private string cortaVento;
+
     public string TipoMoto {get; set;}
     public int Cilindradas {get; set;}
     public bool CortaVento {get; set;}
@@ -23,6 +25,14 @@ public class Motocicleta : DePassageiros
         Vendido = false;
         CapacidadePassageiros = capacidadePassageiros;
     }
+
+    public Motocicleta(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros, string? tipoMoto, int cilindradas, string cortaVento) : base(id, marca, modelo, ano, preco, cor, capacidadePassageiros)
+    {
+        TipoMoto = tipoMoto;
+        Cilindradas = cilindradas;
+        this.cortaVento = cortaVento;
+    }
+
     public override string ToString()
     {
         return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
