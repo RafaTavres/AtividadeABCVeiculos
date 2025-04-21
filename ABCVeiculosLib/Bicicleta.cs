@@ -1,9 +1,12 @@
 namespace ABCVeiculosLib;
 
-public abstract class Bicicleta : DePassageiros
+public class Bicicleta : DePassageiros
 {
     public string TipoMaterial {get; set;}
     public string TipoFreio {get; set;}
+
+    public override string TipoVeiculo => "Bicicleta";
+
     public Bicicleta(int id, string marca, string modelo, int ano, decimal preco, string cor, int capacidadePassageiros, string tipoMaterial, string tipoFreio) :
     base(id, marca, modelo,ano, preco, cor, capacidadePassageiros)
     {

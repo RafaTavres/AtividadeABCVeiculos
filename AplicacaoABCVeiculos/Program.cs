@@ -313,6 +313,7 @@ internal class Program
             Console.WriteLine("2 - Utilitário");
             Console.WriteLine("3 - Caminhonete");
             Console.WriteLine("4 - Caminhão");
+            Console.WriteLine("5 - Bicicleta");
             string tipoVeiculo = Console.ReadLine();
             if(!VerificarTipoCarroValido(tipoVeiculo))
             {
@@ -398,6 +399,7 @@ internal class Program
                 qtdPortas, ehEletrico, capacidadePortaMalas, cavalos, capacidadePassageiros);
                 break;
                 break;
+
             case "2":
                 Console.Write("Capacidade de passageiros: ");
                 int capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
@@ -424,6 +426,7 @@ internal class Program
                 string tipoUso = Console.ReadLine();
                 veiculo = new Utilitario(id,marca,modelo,ano,preco,cor,capacidadePassageiros,tipoUso,ehAdaptadoParaPCD);
                 break;
+
             case "3":
                 Console.Write("Peso de carga: ");
                 decimal pesoCarga = Convert.ToDecimal(Console.ReadLine());
@@ -524,8 +527,24 @@ internal class Program
                 numeroEixos, capacidadeCombustivel, tipoCarroceria, potenciaMotor,  
                 temDormitorio, quantidadeEixos);
                 break;
-            default:
-                Console.WriteLine("Tipo de veículo inválido. Tente novamente.");
+
+            case "5":
+                Console.Write("Tipo de Material: ");
+                string tipoMaterial = Console.ReadLine();
+
+                Console.Write("Tipo de Freio: ");
+                string tipoFreio = Console.ReadLine();
+
+                Console.Write("Capacidade de passageiros: ");
+                capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(capacidadePassageiros))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Capacidade de passageiros: ");
+                    capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                }
+
+                veiculo = new Bicicleta(id, marca, modelo, ano, preco, cor, capacidadePassageiros, tipoMaterial, tipoFreio);
                 break;
         }
 
@@ -541,6 +560,7 @@ internal class Program
         Console.WriteLine("2 - Utilitário");
         Console.WriteLine("3 - Caminhonete");
         Console.WriteLine("4 - Caminhão");
+        Console.WriteLine("5 - Bicicleta");
         string tipoVeiculo = Console.ReadLine();
         if(!VerificarTipoCarroValido(tipoVeiculo))
         {
@@ -563,6 +583,9 @@ internal class Program
                     break;
                 case "4":
                     opcaoSelecionada = "Caminhão";
+                    break;
+                case "5":
+                    opcaoSelecionada = "Bicicleta";
                     break;
                 default:
                     opcaoSelecionada = "";
@@ -597,6 +620,7 @@ internal class Program
         || opcao.Equals("2", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("S", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
@@ -630,7 +654,8 @@ internal class Program
         if(opcao.Equals("1", StringComparison.CurrentCultureIgnoreCase) 
         || opcao.Equals("2", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
-        || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase))
+        || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
         }
