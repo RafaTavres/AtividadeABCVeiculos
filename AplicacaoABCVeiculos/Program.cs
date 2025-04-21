@@ -2,11 +2,6 @@
 using System.Linq;
 internal class Program
 {
-
-// Cadastrar ou listas os dados da revenda
-// Adicionar veículos
-// Listar todos os dados da revenda e de seus veículos. 
-// Listar somente um tipo especifico de veiculo, por exemplo, motocicleta. • Etc.
     public static Revenda RevendaAtual;
     Program()
     {
@@ -28,6 +23,7 @@ internal class Program
         Console.WriteLine("3 - Listar todos os dados da revenda e de seus veículos");
         Console.WriteLine("4 - Listar veiculos por tipo");
         Console.WriteLine("5 - Editar dados de um veículo");
+        Console.WriteLine("6 - Excluir um veículo");
         Console.WriteLine("S - Sair");
         opcao = Console.ReadLine();
         if(VerificarOpcaoValida(opcao))
@@ -49,6 +45,9 @@ internal class Program
                 case "5":
                     EditarVeiculo();
                     break;
+                case "6":
+                    ExcluirVeiculo();
+                    break;
                 case "S":
                     return opcao = "S";
                     break;
@@ -62,6 +61,67 @@ internal class Program
         return opcao = "N";
     }
 
+    public void ExcluirVeiculo()
+    {
+         try
+        {
+            if(RevendaAtual == null)
+            {
+                Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+                return;
+            }
+            Console.Clear();
+            Console.WriteLine("======================");
+            for(int i = 0; i < RevendaAtual.VeiculosDaRevenda.Count; i++)
+            {
+                Console.WriteLine("----------------------");
+                Console.WriteLine($"ID: [{i + 1}] - {RevendaAtual.VeiculosDaRevenda[i].ToString()}");
+                Console.WriteLine("----------------------");
+            }
+            Console.WriteLine("Escolha o ID do veículo que deseja excluir:");
+            int opcao = Convert.ToInt32(Console.ReadLine()) - 1;
+            if(opcao < 0 || opcao >= RevendaAtual.VeiculosDaRevenda.Count)
+            {
+                Console.WriteLine("Opção inválida. Tente novamente.");
+                return;
+            }
+            Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
+            try
+            {
+                Console.WriteLine("=== EXCLUSÃO DE VEÍCULO ===");
+                Console.WriteLine($"Você tem certeza que deseja excluir o veículo? (S/N)");
+                Console.WriteLine($"{veiculoSelecionado.ToString()}? (S/N)");
+                string resposta = Console.ReadLine() ?? "";
+                if(resposta.Equals("S", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    RevendaAtual.VeiculosDaRevenda.Remove(veiculoSelecionado);
+                    Console.WriteLine("Veículo excluído com sucesso!");
+                }else if(resposta.Equals("N", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("Exclusão cancelada.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                }else
+                {
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+            }
+        }catch(Exception ex)
+        {
+            Console.WriteLine($"Erro: {ex.Message}");
+            Console.WriteLine("Clique qualquer tecla para continuar");
+            Console.ReadKey();
+        }
+    }
     public void EditarVeiculo()
     {
         try
@@ -91,15 +151,6 @@ internal class Program
             Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
             try
             {
-                if(RevendaAtual == null)
-                {
-                    Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
-                    Console.WriteLine("Clique qualquer tecla para continuar");
-                    Console.ReadKey();
-                    return;
-                }
-
-                Veiculo novoVeiculo;
                 Console.WriteLine("=== EDIÇÃO DE VEÍCULO ===");
                 Console.WriteLine("Tipo do veículo: ");
                 Console.WriteLine("1 - Automóvel");
