@@ -23,6 +23,6 @@ public class Bicicleta : DePassageiros
     }
     public override string ToString()
     {
-        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Tipo de Freio: {TipoFreio}, Tipo de Material: {TipoMaterial}, Ano: {Ano}, Cor: {Cor} Preço: {Preco}";
+        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Tipo de Freio: {TipoFreio}, Tipo de Material: {TipoMaterial}, Ano: {Ano}, Cor: {Cor} Preço: {Preco}, Vendido: {Vendido}";
     }
 }

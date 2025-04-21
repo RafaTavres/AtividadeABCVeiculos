@@ -26,6 +26,8 @@ public class Caminhonete : DeCarga
     }
     public override string ToString()
     {
-        return $"{Marca}, {Modelo} {TipoVeiculo}";
+        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
+        $"Tipo de carga: {TipoCarga}, Tipo de suspensao: {TipoSuspensao}, Tem cabine dupla: {CabineDupla}, " +
+        $"Tem tracao4x4: {Tracao4x4}CV, Vendido: {Vendido}";
     }
 }

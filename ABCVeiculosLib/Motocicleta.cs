@@ -26,6 +26,6 @@ public class Motocicleta : DePassageiros
     public override string ToString()
     {
         return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
-        $"Tipo: {TipoMoto}, Potência: {Cilindradas}CC, Corta-Vento: {CortaVento}, Passageiros: {CapacidadePassageiros}";    
+        $"Tipo: {TipoMoto}, Potência: {Cilindradas}CC, Corta-Vento: {CortaVento}, Passageiros: {CapacidadePassageiros}, Vendido: {Vendido}";    
     }
 }

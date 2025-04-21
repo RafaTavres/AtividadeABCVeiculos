@@ -31,6 +31,6 @@ public class Automovel : DePassageiros
     {
         return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
         $"Carroceria: {TipoCarroceria}, Portas: {QtdPortas}, Eletrico: {Eletrico}, Porta-Malas: {CapacidadePortaMalas}L, " +
-        $"Potência: {Cavalos}CV, Passageiros: {CapacidadePassageiros}";
+        $"Potência: {Cavalos}CV, Passageiros: {CapacidadePassageiros}, Vendido: {Vendido}";
     }
 }

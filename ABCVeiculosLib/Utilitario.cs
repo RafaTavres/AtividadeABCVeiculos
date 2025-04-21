@@ -21,6 +21,8 @@ public class Utilitario : DeMisto
     }
     public override string ToString()
     {
-        return $"{Marca}, {Modelo} {TipoVeiculo}";
+        return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
+        $"Tipo de uso: {TipoUso}, Tipo de suspensao: {TipoSuspensao}, É adaptado para PCD: {AdaptadoParaPCD}, " +
+        $"Vendido: {Vendido}";
     }
 }
