@@ -22,7 +22,7 @@ public class Utilitario : DeMisto
     public override string ToString()
     {
         return $"Marca: {Marca}, Modelo: {Modelo}, Tipo: {TipoVeiculo}, Ano: {Ano}, Preço: R${Preco}, Cor: {Cor}, " +
-        $"Tipo de uso: {TipoUso}, Tipo de suspensao: {TipoSuspensao}, É adaptado para PCD: {AdaptadoParaPCD}, " +
+        $"Tipo de uso: {TipoUso}, É adaptado para PCD: {AdaptadoParaPCD}, " +
         $"Vendido: {Vendido}";
     }
 }
