@@ -348,7 +348,55 @@ internal class Program
         switch(tipoVeiculo)
         {
             case "1":
-                
+                Console.Write("Tipo de carroceria: ");
+                string tipoCarroceria = Console.ReadLine();
+                Console.Write("Quantidade de portas: ");
+                int qtdPortas = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(qtdPortas))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Quantidade de portas: ");
+                    qtdPortas = Convert.ToInt32(Console.ReadLine());
+                }
+                string eletrico;
+                bool ehEletrico = false;
+                do{
+                    Console.Write("Cabine dupla? S/N: ");
+                    eletrico = Console.ReadLine();
+                    if(eletrico.ToUpper() != "S" && eletrico.ToUpper() != "N")
+                    {
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                    }else{
+                        ehEletrico = eletrico.ToUpper() == "S" ? true : false;
+                    }
+                }while(eletrico.ToUpper() != "S" && eletrico.ToUpper() != "N");
+                Console.Write("Capacidade do porta-malas: ");
+                int capacidadePortaMalas = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(capacidadePortaMalas))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Capacidade do porta-malas: ");
+                    capacidadePortaMalas = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Write("Cavalos: ");
+                int cavalos = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(cavalos))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Cavalos: ");
+                    cavalos = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Write("Capacidade de passageiros: ");
+                int capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(capacidadePassageiros))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Capacidade de passageiros: ");
+                    capacidadePassageiros = Convert.ToInt32(Console.ReadLine());
+                }
+                veiculo = new Automovel(id,marca,modelo, ano, preco,cor,tipoCarroceria,
+                qtdPortas, ehEletrico, capacidadePortaMalas, cavalos, capacidadePassageiros);
+                break;
                 break;
             case "2":
                 Console.Write("Capacidade de passageiros: ");
@@ -416,7 +464,65 @@ internal class Program
                 veiculo = new Caminhonete(id,marca,modelo,ano,preco,cor,pesoCarga,tipoCarga,temCabineDupla,temTracao4x4,tipoSuspensao);
                 break;
             case "4":
-                
+                Console.Write("Peso de carga: ");
+                pesoCarga = Convert.ToDecimal(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(pesoCarga))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Peso de carga: ");
+                    pesoCarga = Convert.ToDecimal(Console.ReadLine());
+                }
+                Console.Write("Tipo de carga: ");
+                tipoCarga = Console.ReadLine();
+                Console.Write("Número de eixos: ");
+                int numeroEixos = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(numeroEixos))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Número de eixos: ");
+                    numeroEixos = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Write("Capacidade de combustível: ");
+                decimal capacidadeCombustivel = Convert.ToDecimal(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(capacidadeCombustivel))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Capacidade de combustível: ");
+                    capacidadeCombustivel = Convert.ToDecimal(Console.ReadLine());
+                }
+                Console.Write("Tipo de carroceria: ");
+                string tipoCarroceria = Console.ReadLine();
+                Console.Write("Potência do motor: ");
+                int potenciaMotor = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(potenciaMotor))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Potência do motor: ");
+                    potenciaMotor = Convert.ToInt32(Console.ReadLine());
+                }
+                string dormitorio;
+                bool temDormitorio = false;
+                do{
+                    Console.Write("Dormitório? S/N: ");
+                    dormitorio = Console.ReadLine();
+                    if(dormitorio.ToUpper() != "S" && dormitorio.ToUpper() != "N")
+                    {
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                    }else{
+                        temDormitorio = dormitorio.ToUpper() == "S" ? true : false;
+                    }
+                }while(dormitorio.ToUpper() != "S" && dormitorio.ToUpper() != "N");
+                Console.Write("Quantidade de eixos: ");
+                int quantidadeEixos = Convert.ToInt32(Console.ReadLine());
+                while(!VerificarSerRespostaEhNumero(quantidadeEixos))
+                {
+                    Console.Write("Digite um número válido");
+                    Console.Write("Quantidade de eixos: ");
+                    quantidadeEixos = Convert.ToInt32(Console.ReadLine());
+                }
+                veiculo = new Caminhao(id,marca, modelo, ano, preco, cor, pesoCarga, tipoCarga, 
+                numeroEixos, capacidadeCombustivel, tipoCarroceria, potenciaMotor,  
+                temDormitorio, quantidadeEixos);
                 break;
             default:
                 Console.WriteLine("Tipo de veículo inválido. Tente novamente.");
@@ -431,7 +537,7 @@ internal class Program
         Console.Clear();
         Console.WriteLine("======================");
         Console.WriteLine("Escolha o tipo de veículo que deseja listar:");
-        Console.WriteLine("1 - Carro");
+        Console.WriteLine("1 - Automovel");
         Console.WriteLine("2 - Utilitário");
         Console.WriteLine("3 - Caminhonete");
         Console.WriteLine("4 - Caminhão");
@@ -447,7 +553,7 @@ internal class Program
             switch (tipoVeiculo)
             {
                 case "1":
-                    opcaoSelecionada = "Carro";
+                    opcaoSelecionada = "Automóvel";
                     break;
                 case "2":
                     opcaoSelecionada = "Utilitario";

@@ -3,14 +3,14 @@ namespace ABCVeiculosLib;
 public class Caminhao : DeCarga
 {
     public int NumeroEixos { get; set;}
-    public float CapacidadeCombustivel {get; set;}
+    public decimal CapacidadeCombustivel {get; set;}
     public string TipoCarroceria { get; set;}
     public int PotenciaMotor {get; set;}
     public bool Dormitorio {get; set;}
     public override string TipoVeiculo => "Caminhao";
     public int QuantidadeEixos {get; set;}
     public Caminhao(int id, string marca, string modelo, int ano, decimal preco, string cor, decimal pesoCarga, string tipoCarga, 
-    int numeroEixos, float capacidadeCombustivel, string tipoCarroceria, int potenciaMotor, bool dormitorio, int quantidadeEixos) :
+    int numeroEixos, decimal capacidadeCombustivel, string tipoCarroceria, int potenciaMotor, bool dormitorio, int quantidadeEixos) :
     base(id, marca, modelo,ano, preco, cor, pesoCarga, tipoCarga)
     {
         NumeroEixos = NumeroEixos;
