@@ -30,6 +30,7 @@ internal class Program
         Console.WriteLine("4 - Listar veiculos por tipo");
         Console.WriteLine("5 - Editar dados de um veículo");
         Console.WriteLine("6 - Excluir um veículo");
+        Console.WriteLine("7 - Alterar veículo para vendido");
         Console.WriteLine("S - Sair");
         opcao = Console.ReadLine();
         if(VerificarOpcaoValida(opcao))
@@ -53,6 +54,9 @@ internal class Program
                     break;
                 case "6":
                     ExcluirVeiculo();
+                    break;
+                case "7":
+                    MarcarComoVendido();
                     break;
                 case "S":
                     return opcao = "S";
@@ -644,6 +648,7 @@ internal class Program
         || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("7", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("S", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
@@ -679,7 +684,8 @@ internal class Program
         || opcao.Equals("3", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("4", StringComparison.CurrentCultureIgnoreCase)
         || opcao.Equals("5", StringComparison.CurrentCultureIgnoreCase)
-        || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase))
+        || opcao.Equals("6", StringComparison.CurrentCultureIgnoreCase)
+        || opcao.Equals("7", StringComparison.CurrentCultureIgnoreCase))
         {
             return true;
         }
@@ -700,7 +706,66 @@ internal class Program
         }
     }
     
-    
+    public void MarcarComoVendido()
+    {
+        try
+        {
+            if(RevendaAtual == null)
+            {
+                Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+                return;
+            }
+            Console.Clear();
+            Console.WriteLine("======================");
+            for(int i = 0; i < RevendaAtual.VeiculosDaRevenda.Count; i++)
+            {
+                Console.WriteLine("----------------------");
+                Console.WriteLine($"ID: [{i + 1}] - {RevendaAtual.VeiculosDaRevenda[i].ToString()}");
+                Console.WriteLine("----------------------");
+            }
+            Console.WriteLine("Escolha o ID do veículo que deseja marcar como vendido:");
+            int opcao = Convert.ToInt32(Console.ReadLine()) - 1;
+            if(opcao < 0 || opcao >= RevendaAtual.VeiculosDaRevenda.Count)
+            {
+                Console.WriteLine("Opção inválida. Tente novamente.");
+                return;
+            }
+            Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
+            try
+            {
+                Console.WriteLine($"Você tem certeza que deseja marcar o veículo como vendido? (S/N)");
+                Console.WriteLine($"{veiculoSelecionado.ToString()}? (S/N)");
+                string resposta = Console.ReadLine() ?? "";
+                if(resposta.Equals("S", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    veiculoSelecionado.MarcarComoVendido();
+                    Console.WriteLine("Veículo vendido com sucesso!");
+                }else if(resposta.Equals("N", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("Operação cancelada.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                }else
+                {
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+            }
+        }catch(Exception ex)
+        {
+            Console.WriteLine($"Erro: {ex.Message}");
+            Console.WriteLine("Clique qualquer tecla para continuar");
+            Console.ReadKey();
+        }
+    }
     public void CopiarPropriedades<T>(T origem, T destino)
     {
         var propriedades = typeof(T).GetProperties();

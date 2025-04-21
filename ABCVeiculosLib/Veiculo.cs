@@ -23,6 +23,10 @@ public abstract class Veiculo
         return $"Marca: {Marca},Modelo: {Modelo},Tipo: {this.GetType().Name}";
     }
     
+    public void MarcarComoVendido()
+    {
+        Vendido = true;
+    }
     public Veiculo(int id, string marca, string modelo, int ano, decimal preco, string cor)
     {
         Id = id;
