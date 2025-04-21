@@ -152,7 +152,7 @@ internal class Program
             try
             {
                 Console.WriteLine("=== EDIÇÃO DE VEÍCULO ===");
-                Console.WriteLine("Tipo do veículo: ");
+                Console.WriteLine("Novo tipo do veículo: ");
                 Console.WriteLine("1 - Automóvel");
                 Console.WriteLine("2 - Utilitário");
                 Console.WriteLine("3 - Caminhonete");
