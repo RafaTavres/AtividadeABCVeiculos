@@ -1,11 +1,7 @@
 ﻿using ABCVeiculosLib;
+using System.Linq;
 internal class Program
 {
-
-// Cadastrar ou listas os dados da revenda
-// Adicionar veículos
-// Listar todos os dados da revenda e de seus veículos. 
-// Listar somente um tipo especifico de veiculo, por exemplo, motocicleta. • Etc.
     public static Revenda RevendaAtual;
     Program()
     {
@@ -16,164 +12,6 @@ internal class Program
         }while(opcao.Equals("N", StringComparison.CurrentCultureIgnoreCase));
     }
 
-    // public void CriarRevenda(){
-    //     try{
-    //         Console.WriteLine("Titulo do livro:");
-    //         string titulo = Console.ReadLine();
-    //         Console.WriteLine("SubTitulo do livro:");
-    //         string subTitulo = Console.ReadLine();
-    //         Console.WriteLine("Escritor do livro:");
-    //         string escritor = Console.ReadLine();
-    //         Console.WriteLine("Editora do livro:");
-    //         string editora = Console.ReadLine();
-    //         Console.WriteLine("Genero do livro:");
-    //         string genero = Console.ReadLine();
-    //         Console.WriteLine("AnoPublicacao do livro:");
-    //         DateTime anoPublicacao = Convert.ToDateTime(Console.ReadLine());
-    //         Console.WriteLine("TipoDaCapa do livro:");
-    //         string tipoDaCapa = Console.ReadLine();
-    //         Console.WriteLine("NumeroDePaginas do livro:");
-    //         int numeroDePaginas = Convert.ToInt32(Console.ReadLine());
-
-    //         Livro livro = new Livro(
-    //             titulo, 
-    //             subTitulo, 
-    //             escritor, 
-    //             editora, 
-    //             genero, 
-    //             anoPublicacao, 
-    //             tipoDaCapa, 
-    //             numeroDePaginas
-    //         );
-    //         Livros.Add(livro);
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         Console.WriteLine(e.Message);
-    //         Console.WriteLine("Deseja tentar novamente?: S/N ");
-    //         string resposta = Console.ReadLine() ?? "";
-    //         if(resposta.Equals("S",StringComparison.CurrentCultureIgnoreCase))
-    //             CriarLivro();
-    //         if(resposta.Equals("N",StringComparison.CurrentCultureIgnoreCase))
-    //             return;
-    //         else
-    //         {
-    //             Console.WriteLine("resposta invalida, precione qualquer tecla para retornar");
-    //             Console.ReadKey();
-    //         }
-    //     }
-
-    //     Console.Clear();       
-    //     // Console.Clear();
-    // }
-    // public Livro BuscarLivro(string tituloBusca = null){
-    //     // Console.Clear();
-    //     Console.WriteLine("======================");
-    //     Console.WriteLine("Título do livro que deseja buscar");
-    //     if(tituloBusca == null){
-    //         tituloBusca = Console.ReadLine();
-    //         Livro livroBusca = Livros.Find(x => x.Titulo == tituloBusca);
-    //         Leitor leitorBuscado = Leitores.Find(x => x.LivrosDoLeitor.Contains(livroBusca));
-
-    //         // Console.Clear();
-    //         Console.WriteLine("======================");
-    //         Console.WriteLine($"Titulo: {livroBusca.Titulo}");
-    //         Console.WriteLine($"Subtitulo: {livroBusca.Subtitulo}");
-    //         Console.WriteLine($"Escritor: {livroBusca.Escritor}");
-    //         Console.WriteLine($"Editora: {livroBusca.Editora}");
-    //         Console.WriteLine($"Genero: {livroBusca.Genero}");
-    //         Console.WriteLine($"Ano da publicação: {livroBusca.AnoPublicacao}");
-    //         Console.WriteLine($"Tipo de capa: {livroBusca.TipoDaCapa}");
-    //         Console.WriteLine($"Número de páginas: {livroBusca.NumeroDePaginas}");
-    //         Console.WriteLine("---------------------");
-
-    //         if(leitorBuscado != null){
-    //             Console.WriteLine("Leitor atual:");
-    //             Console.WriteLine("---------------------");
-    //             Console.WriteLine($"Nome: {leitorBuscado.Nome}");
-    //             Console.WriteLine($"Idade: {leitorBuscado.Idade}");
-    //             Console.WriteLine($"CPF: {leitorBuscado.CPF}");
-    //             Console.WriteLine("---------------------");
-    //         }
-    //         return livroBusca;
-    //     }
-    //     else{
-    //         Livro livroBusca = Livros.Find(x => x.Titulo == tituloBusca);
-    //         Console.Clear();
-    //         Console.WriteLine("======================");
-    //         Console.WriteLine($"Titulo: {livroBusca.Titulo}");
-    //         Console.WriteLine($"Subtitulo: {livroBusca.Subtitulo}");
-    //         Console.WriteLine($"Escritor: {livroBusca.Escritor}");
-    //         Console.WriteLine($"Editora: {livroBusca.Editora}");
-    //         Console.WriteLine($"Genero: {livroBusca.Genero}");
-    //         Console.WriteLine($"Ano da publicação: {livroBusca.AnoPublicacao}");
-    //         Console.WriteLine($"Tipo de capa: {livroBusca.TipoDaCapa}");
-    //         Console.WriteLine($"Número de páginas: {livroBusca.NumeroDePaginas}");
-    //         return livroBusca;
-    //     }
-    // }
-    // public void ListarTodosLivros(){
-    //     Console.Clear();
-    //     foreach(var livro in Livros)
-    //     {
-    //         Console.WriteLine("======================");
-    //         Console.WriteLine($"Titulo: {livro.Titulo}");
-    //         Console.WriteLine($"Escritor: {livro.Escritor}");
-    //         Console.WriteLine($"Ano da publicação: {livro.AnoPublicacao}");
-    //     }
-    //     Console.WriteLine($"Clique qualquer tecla para continuar");
-    //     Console.ReadKey();
-    // }
-    // public void ExcluirLivro(){
-    //     Console.Clear();
-    //     Console.WriteLine("======================");
-    //     Console.WriteLine("Título do livro que deseja excluir");
-    //     string tituloExclusao = Console.ReadLine();
-    //     Livro LivroExclusao = BuscarLivro(tituloExclusao);
-    //     Livros.Remove(LivroExclusao);
-    //     Console.WriteLine("Livro excluído com sucesso");
-    //     Console.WriteLine("Clique qualquer tecla para continuar");
-    //     Console.ReadKey();
-    // }
-    // public void EditarLivro(){
-    //     Console.Clear();
-    //     Console.WriteLine("======================");
-    //     Console.WriteLine("Título do livro que deseja editar");
-    //     string tituloEditar = Console.ReadLine();
-    //     Livro livroEditar = BuscarLivro(tituloEditar);
-    //     Console.WriteLine("-------------------------");
-
-    //     Console.WriteLine("Titulo do livro:");
-    //     string titulo = Console.ReadLine();
-    //     Console.WriteLine("SubTitulo do livro:");
-    //     string subTitulo = Console.ReadLine();
-    //     Console.WriteLine("Escritor do livro:");
-    //     string escritor = Console.ReadLine();
-    //     Console.WriteLine("Editora do livro:");
-    //     string editora = Console.ReadLine();
-    //     Console.WriteLine("Genero do livro:");
-    //     string genero = Console.ReadLine();
-    //     Console.WriteLine("AnoPublicacao do livro:");
-    //     DateTime anoPublicacao = Convert.ToDateTime(Console.ReadLine());
-    //     Console.WriteLine("TipoDaCapa do livro:");
-    //     string tipoDaCapa = Console.ReadLine();
-    //     Console.WriteLine("NumeroDePaginas do livro:");
-    //     int numeroDePaginas = Convert.ToInt32(Console.ReadLine());
-
-    //     livroEditar.Titulo = titulo;
-    //     livroEditar.Subtitulo = subTitulo;
-    //     livroEditar.Escritor = escritor;
-    //     livroEditar.Editora = editora;
-    //     livroEditar.Genero = genero;
-    //     livroEditar.AnoPublicacao = anoPublicacao;
-    //     livroEditar.TipoDaCapa = tipoDaCapa;
-    //     livroEditar.NumeroDePaginas = numeroDePaginas;
-
-    //     Console.WriteLine("Livro editado com sucesso");
-    //     Console.WriteLine("Clique qualquer tecla para continuar");
-    //     Console.ReadKey();
-    // }
-   
     // CRUD
     public string? MenuInicial(string? opcao){
         Console.Clear();
@@ -185,6 +23,7 @@ internal class Program
         Console.WriteLine("3 - Listar todos os dados da revenda e de seus veículos");
         Console.WriteLine("4 - Listar veiculos por tipo");
         Console.WriteLine("5 - Editar dados de um veículo");
+        Console.WriteLine("6 - Excluir um veículo");
         Console.WriteLine("S - Sair");
         opcao = Console.ReadLine();
         if(VerificarOpcaoValida(opcao))
@@ -206,6 +45,9 @@ internal class Program
                 case "5":
                     EditarVeiculo();
                     break;
+                case "6":
+                    ExcluirVeiculo();
+                    break;
                 case "S":
                     return opcao = "S";
                     break;
@@ -219,6 +61,67 @@ internal class Program
         return opcao = "N";
     }
 
+    public void ExcluirVeiculo()
+    {
+        try
+        {
+            if(RevendaAtual == null)
+            {
+                Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+                return;
+            }
+            Console.Clear();
+            Console.WriteLine("======================");
+            for(int i = 0; i < RevendaAtual.VeiculosDaRevenda.Count; i++)
+            {
+                Console.WriteLine("----------------------");
+                Console.WriteLine($"ID: [{i + 1}] - {RevendaAtual.VeiculosDaRevenda[i].ToString()}");
+                Console.WriteLine("----------------------");
+            }
+            Console.WriteLine("Escolha o ID do veículo que deseja excluir:");
+            int opcao = Convert.ToInt32(Console.ReadLine()) - 1;
+            if(opcao < 0 || opcao >= RevendaAtual.VeiculosDaRevenda.Count)
+            {
+                Console.WriteLine("Opção inválida. Tente novamente.");
+                return;
+            }
+            Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
+            try
+            {
+                Console.WriteLine("=== EXCLUSÃO DE VEÍCULO ===");
+                Console.WriteLine($"Você tem certeza que deseja excluir o veículo? (S/N)");
+                Console.WriteLine($"{veiculoSelecionado.ToString()}? (S/N)");
+                string resposta = Console.ReadLine() ?? "";
+                if(resposta.Equals("S", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    RevendaAtual.VeiculosDaRevenda.Remove(veiculoSelecionado);
+                    Console.WriteLine("Veículo excluído com sucesso!");
+                }else if(resposta.Equals("N", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("Exclusão cancelada.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                }else
+                {
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                    Console.WriteLine("Clique qualquer tecla para continuar");
+                    Console.ReadKey();
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                Console.WriteLine("Clique qualquer tecla para continuar");
+                Console.ReadKey();
+            }
+        }catch(Exception ex)
+        {
+            Console.WriteLine($"Erro: {ex.Message}");
+            Console.WriteLine("Clique qualquer tecla para continuar");
+            Console.ReadKey();
+        }
+    }
     public void EditarVeiculo()
     {
         try
@@ -248,15 +151,6 @@ internal class Program
             Veiculo veiculoSelecionado = RevendaAtual.VeiculosDaRevenda[opcao];
             try
             {
-                if(RevendaAtual == null)
-                {
-                    Console.WriteLine("Revenda não cadastrada. Por favor, cadastre uma revenda primeiro.");
-                    Console.WriteLine("Clique qualquer tecla para continuar");
-                    Console.ReadKey();
-                    return;
-                }
-
-                Veiculo novoVeiculo;
                 Console.WriteLine("=== EDIÇÃO DE VEÍCULO ===");
                 Console.WriteLine("Tipo do veículo: ");
                 Console.WriteLine("1 - Automóvel");
@@ -271,9 +165,12 @@ internal class Program
                     Console.WriteLine("Tipo de veículo inválido. Tente novamente.");
                     return;
                 }else
-                {
-                    Veiculo veiculo = CriarVeiculo(tipoVeiculo);
-                    veiculoSelecionado = veiculo;
+                {   Veiculo veiculo = CriarVeiculo(tipoVeiculo);
+                    var veiculoExistente = RevendaAtual.VeiculosDaRevenda.Find(x => x.Id == veiculoSelecionado.Id);
+                    if (veiculoExistente != null)
+                    {
+                        CopiarPropriedades(veiculo, veiculoExistente);
+                    }
                 }
             }catch(Exception ex)
             {
@@ -784,7 +681,19 @@ internal class Program
     }
     
     
-    
+    public void CopiarPropriedades<T>(T origem, T destino)
+    {
+        var propriedades = typeof(T).GetProperties();
+
+        foreach (var prop in propriedades)
+        {
+            if (prop.CanRead && prop.CanWrite)
+            {
+                var valor = prop.GetValue(origem, null);
+                prop.SetValue(destino, valor, null);
+            }
+        }
+    }
     
     private static void Main(string[] args)
     {
