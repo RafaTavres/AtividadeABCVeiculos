@@ -184,7 +184,7 @@ internal class Program
         Console.WriteLine("2 - Adicionar veículo");
         Console.WriteLine("3 - Listar todos os dados da revenda e de seus veículos");
         Console.WriteLine("4 - Listar veiculos por tipo");
-        Console.WriteLine("S- Sair");
+        Console.WriteLine("S - Sair");
         opcao = Console.ReadLine();
         if(VerificarOpcaoValida(opcao))
         {
@@ -514,16 +514,9 @@ internal class Program
                     }
                 }while(dormitorio.ToUpper() != "S" && dormitorio.ToUpper() != "N");
                 Console.Write("Quantidade de eixos: ");
-                int quantidadeEixos = Convert.ToInt32(Console.ReadLine());
-                while(!VerificarSerRespostaEhNumero(quantidadeEixos))
-                {
-                    Console.Write("Digite um número válido");
-                    Console.Write("Quantidade de eixos: ");
-                    quantidadeEixos = Convert.ToInt32(Console.ReadLine());
-                }
                 veiculo = new Caminhao(id,marca, modelo, ano, preco, cor, pesoCarga, tipoCarga, 
                 numeroEixos, capacidadeCombustivel, tipoCarroceria, potenciaMotor,  
-                temDormitorio, quantidadeEixos);
+                temDormitorio);
                 break;
             case "5":
                 Console.Write("Tipo de Material: ");
